@@ -222,8 +222,8 @@
         },
         {
           "name": "🚀・your-ports",
-          "type": "text",
-          "topic": "Showcase your own webports and community creations."
+          "type": "forum",
+          "topic": "Showcase community WebAssembly decompilations, retro cores, and custom browser ports. Create a post for each project!"
         },
         {
           "name": "🔄・github-commits",
