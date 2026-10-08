@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 import discord
 from discord import app_commands
 from discord.ext import commands
+import re
+from ai_assistant import query_ai
 
 if sys.platform == "win32":
     try:
@@ -329,6 +331,45 @@ async def slash_close(interaction: discord.Interaction):
         await interaction.channel.delete(reason=f"Ticket closed by {interaction.user}")
     except Exception as e:
         print(f"! Error deleting ticket channel: {e}", flush=True)
+
+@bot.tree.command(name="ask", description="Ask UnionAI any question about games, mirrors, porting, or code")
+@app_commands.describe(question="Your question or prompt for UnionAI")
+async def slash_ask(interaction: discord.Interaction, question: str):
+    await interaction.response.defer(thinking=True)
+    ans = await query_ai(question)
+    embed = discord.Embed(
+        title="🤖 UnionAI Response",
+        description=ans[:4000],
+        color=0x2ecc71
+    )
+    embed.set_footer(text=f"Requested by {interaction.user.display_name} • The Webport Union")
+    await interaction.followup.send(embed=embed)
+
+@bot.tree.command(name="ai", description="Chat with UnionAI assistant")
+@app_commands.describe(prompt="Your prompt or question")
+async def slash_ai(interaction: discord.Interaction, prompt: str):
+    await slash_ask.callback(interaction, prompt)
+
+@bot.event
+async def on_message(message: discord.Message):
+    if message.author.bot:
+        return
+    # If the bot is pinged/mentioned directly
+    if bot.user in message.mentions:
+        clean_text = re.sub(r'<@!?[0-9]+>', '', message.content).strip()
+        if not clean_text:
+            await message.reply("Hey! I'm **UnionAI**. Ask me anything with `/ask <question>` or just mention me here!")
+            return
+        async with message.channel.typing():
+            ans = await query_ai(clean_text)
+            # Split if exceeds 2000 characters
+            if len(ans) > 2000:
+                parts = [ans[i:i+1900] for i in range(0, len(ans), 1900)]
+                for p in parts:
+                    await message.reply(p)
+            else:
+                await message.reply(ans)
+    await bot.process_commands(message)
 
 if __name__ == "__main__":
     bot.run(token)
