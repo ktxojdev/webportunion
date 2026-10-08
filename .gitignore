@@ -26,3 +26,6 @@ ENV/
 Thumbs.db
 *.log
 .vercel
+
+# Local isolated dev testbeds
+standalone-gta-workspace/
