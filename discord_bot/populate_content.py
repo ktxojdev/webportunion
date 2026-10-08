@@ -49,23 +49,70 @@ async def on_ready():
         async for m in links_ch.history(limit=5):
             await m.delete()
         embed = discord.Embed(
-            title="🌐 The Webport Union — Official Mirrors & Endpoints",
+            title="🌐 THE WEBPORT UNION — OFFICIAL LINK DROPS & MIRRORS",
             description=(
-                "Official permanent CDN mirrors and deployment hubs for The Webport Union.\n\n"
-                "🌐 **Primary Domain**: `https://webportunion.games`\n"
-                "📦 **Permanent jsDelivr CDN**: `https://cdn.jsdelivr.net/gh/ktxojdev/webportunion@main/launcher.svg`\n"
-                "🔗 **Vercel Mirror**: `https://webport-union.vercel.app`\n"
-                "🐙 **GitHub Source**: `https://github.com/ktxojdev/webportunion`\n"
-                "🎮 **GTA III Web**: Native WebAssembly re3 port with full audio & graphics.\n"
-                "🕹️ **Nintendo Web Emu**: High-precision WebAssembly retro emulation core.\n"
-                "💻 **BYOD Tool**: Build Your Own Domain router to generate unblockable school mirrors."
+                "Welcome to the official link directory of **The Webport Union**.\n"
+                "All endpoints below are verified, permanent, and configured for filter evasion.\n"
+                "*Bookmark and save these links for unblocked access on restricted networks.*"
             ),
             colour=0x2ecc71
         )
-        embed.add_field(name="Cross-Origin Isolation", value="All multithreaded WASM ports run with mandatory COOP & COEP headers.", inline=False)
-        embed.set_footer(text="Verified & Maintained by The Webport Union")
+        embed.add_field(
+            name="🟢 Core Domains & Edge Mirrors",
+            value=(
+                "• `https://webportunion.games`\n"
+                "• `https://webport-union.vercel.app`\n"
+                "• `https://webportunion.games/launcher.svg` (Google Drive Cloak)\n"
+                "• `https://webportunion.games/player.html` (Retro Core Player)"
+            ),
+            inline=False
+        )
+        embed.add_field(
+            name="⚡ Permanent jsDelivr CDN Links (.svg Stealth)",
+            value=(
+                "• `https://cdn.jsdelivr.net/gh/ktxojdev/webportunion@main/launcher.svg`\n"
+                "• `https://cdn.jsdelivr.net/gh/ktxojdev/dr-langeskov-webport@main/index.html`\n"
+                "• `https://github.com/ktxojdev/webportunion` (Full Source Repository)"
+            ),
+            inline=False
+        )
+        embed.add_field(
+            name="🕹️ Direct Game Links (Featured)",
+            value=(
+                "• **ClusterTruck**: `https://webportunion.games/files/ClusterTruck/clustertruck.html`\n"
+                "• **Cuphead**: `https://webportunion.games/files/cuphead/index.html`\n"
+                "• **Bendy (BATIM)**: `https://webportunion.games/files/BATIM/index.html`\n"
+                "• **MiSide**: `https://webportunion.games/files/miside/miside.html`\n"
+                "• **OneShot (WME)**: `https://webportunion.games/files/oneshot-wme/index.html`\n"
+                "• **Dr. Langeskov**: `https://cdn.jsdelivr.net/gh/ktxojdev/dr-langeskov-webport@main/index.html`"
+            ),
+            inline=False
+        )
+        embed.add_field(
+            name="🕹️ Direct Game Links (Arcade & Action)",
+            value=(
+                "• **Global Strike (CS 1.6)**: `https://webportunion.games/files/gstrike/index.html`\n"
+                "• **Fez**: `https://webportunion.games/files/FEZ/fez.html`\n"
+                "• **Hill Climb Racing**: `https://webportunion.games/files/hcr/index.html`\n"
+                "• **Dice A Million**: `https://webportunion.games/files/diceAmillion/diceamillion.html`\n"
+                "• **Toasterball**: `https://webportunion.games/files/toasterball/index.html`\n"
+                "• **Brotato**: `https://webportunion.games/files/bpac/index.html`\n"
+                "• **Baldi's Basics**: `https://webportunion.games/files/birthdaybash/index.html`"
+            ),
+            inline=False
+        )
+        embed.add_field(
+            name="💻 BYOD Tools & Community Infrastructure",
+            value=(
+                "• **BYOD Site Generator**: `https://webportunion.games/byod`\n"
+                "• **Permanent Discord Invite**: `https://discord.gg/4e9ckAw8Fv`\n"
+                "• **Cross-Origin Isolation**: Multithreaded WASM headers (`COOP: same-origin`, `COEP: require-corp`) active."
+            ),
+            inline=False
+        )
+        embed.set_footer(text="The Webport Union • UBG Link Directory & Mirrors")
         await links_ch.send(embed=embed)
-        print("✓ Populated #official-links", flush=True)
+        print("✓ Populated #official-links with full UBG link drops", flush=True)
         await asyncio.sleep(1.0)
 
     # 3. Live Deployments

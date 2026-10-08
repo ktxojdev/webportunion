@@ -238,20 +238,71 @@ async def on_member_join(member: discord.Member):
 
 # ----------------- SLASH COMMANDS -----------------
 
-@bot.tree.command(name="portal", description="Get official links to The Webport Union and all game mirrors")
+@bot.tree.command(name="portal", description="Get full unblocked link drops, mirrors, and game endpoints")
 async def slash_portal(interaction: discord.Interaction):
     embed = discord.Embed(
-        title="🌐 The Webport Union — Production Portals",
-        description=(
-            "• **Official Domain**: [webportunion.games](https://webportunion.games)\n"
-            "• **Permanent jsDelivr CDN**: `https://cdn.jsdelivr.net/gh/ktxojdev/webportunion@main/launcher.svg`\n"
-            "• **GitHub Repository**: [github.com/ktxojdev/webportunion](https://github.com/ktxojdev/webportunion)\n"
-            "• **Permanent Discord**: [discord.gg/4e9ckAw8Fv](https://discord.gg/4e9ckAw8Fv)\n"
-            "• **Vercel Mirror**: [webport-union.vercel.app](https://webport-union.vercel.app)"
-        ),
-        color=0x5865F2
+        title="🌐 The Webport Union — Link Drops & Mirrors",
+        description="Official permanent mirrors, stealth `.svg` CDN endpoints, and direct game link drops.\n*Bookmark and copy these links for unblocked access.*",
+        color=0x2ecc71
     )
+    embed.add_field(
+        name="🟢 Primary Domains & Mirrors",
+        value=(
+            "• `https://webportunion.games`\n"
+            "• `https://webport-union.vercel.app`\n"
+            "• `https://webportunion.games/launcher.svg` (Google Drive Cloak)\n"
+            "• `https://webportunion.games/player.html` (Retro Core Player)"
+        ),
+        inline=False
+    )
+    embed.add_field(
+        name="⚡ Permanent jsDelivr CDN Links (.svg Stealth)",
+        value=(
+            "• `https://cdn.jsdelivr.net/gh/ktxojdev/webportunion@main/launcher.svg`\n"
+            "• `https://cdn.jsdelivr.net/gh/ktxojdev/dr-langeskov-webport@main/index.html`\n"
+            "• `https://github.com/ktxojdev/webportunion` (Full Source)"
+        ),
+        inline=False
+    )
+    embed.add_field(
+        name="🕹️ Direct Game Links (Featured)",
+        value=(
+            "• **ClusterTruck**: `https://webportunion.games/files/ClusterTruck/clustertruck.html`\n"
+            "• **Cuphead**: `https://webportunion.games/files/cuphead/index.html`\n"
+            "• **Bendy (BATIM)**: `https://webportunion.games/files/BATIM/index.html`\n"
+            "• **MiSide**: `https://webportunion.games/files/miside/miside.html`\n"
+            "• **OneShot (WME)**: `https://webportunion.games/files/oneshot-wme/index.html`\n"
+            "• **Dr. Langeskov**: `https://cdn.jsdelivr.net/gh/ktxojdev/dr-langeskov-webport@main/index.html`"
+        ),
+        inline=False
+    )
+    embed.add_field(
+        name="🕹️ Direct Game Links (Arcade & Action)",
+        value=(
+            "• **Global Strike (CS 1.6)**: `https://webportunion.games/files/gstrike/index.html`\n"
+            "• **Fez**: `https://webportunion.games/files/FEZ/fez.html`\n"
+            "• **Hill Climb Racing**: `https://webportunion.games/files/hcr/index.html`\n"
+            "• **Dice A Million**: `https://webportunion.games/files/diceAmillion/diceamillion.html`\n"
+            "• **Toasterball**: `https://webportunion.games/files/toasterball/index.html`\n"
+            "• **Brotato**: `https://webportunion.games/files/bpac/index.html`\n"
+            "• **Baldi's Basics**: `https://webportunion.games/files/birthdaybash/index.html`"
+        ),
+        inline=False
+    )
+    embed.add_field(
+        name="💻 BYOD Tools & Community",
+        value=(
+            "• **BYOD Site Tool**: `https://webportunion.games/byod`\n"
+            "• **Permanent Discord**: `https://discord.gg/4e9ckAw8Fv`"
+        ),
+        inline=False
+    )
+    embed.set_footer(text="The Webport Union • Unblocked WebAssembly Infrastructure")
     await interaction.response.send_message(embed=embed)
+
+@bot.tree.command(name="links", description="Get full link drops for all game ports and mirrors")
+async def slash_links(interaction: discord.Interaction):
+    await slash_portal.callback(interaction)
 
 @bot.tree.command(name="rules", description="View The Webport Union server rules")
 async def slash_rules(interaction: discord.Interaction):
@@ -267,16 +318,6 @@ async def slash_rules(interaction: discord.Interaction):
     )
     await interaction.response.send_message(embed=embed)
 
-@bot.tree.command(name="links", description="Get direct links to games, unblocked proxies, and BYOD routers")
-async def slash_links(interaction: discord.Interaction):
-    embed = discord.Embed(
-        title="🎮 Unblocked Games & Proxies",
-        description=(
-            "Check <#1557554341991419944> (`official-links`) and <#1557556023307669524> (`live-deployments`) "
-            "for verified working school mirrors, unblockers, and retro emulation ports!"
-        ),
-        color=0x9b59b6
-    )
 @bot.tree.command(name="close", description="Close and delete the current support ticket")
 async def slash_close(interaction: discord.Interaction):
     if not interaction.channel.name.startswith("ticket-"):
