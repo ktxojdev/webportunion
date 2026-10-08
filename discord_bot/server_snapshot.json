@@ -1,0 +1,85 @@
+{
+  "server_name": "The Webport Union",
+  "guild_id": 1557545995271807016,
+  "roles": [
+    {
+      "name": "Protector",
+      "id": 1557546044789755917,
+      "color": "#000000",
+      "hoist": false,
+      "position": 1,
+      "managed": true
+    },
+    {
+      "name": "Unverified",
+      "id": 1557546294107705385,
+      "color": "#000000",
+      "hoist": false,
+      "position": 1,
+      "managed": false
+    },
+    {
+      "name": "Peak Bot",
+      "id": 1557546638170390638,
+      "color": "#000000",
+      "hoist": false,
+      "position": 1,
+      "managed": true
+    },
+    {
+      "name": "SetupServer",
+      "id": 1557551551814303827,
+      "color": "#000000",
+      "hoist": false,
+      "position": 1,
+      "managed": true
+    },
+    {
+      "name": "@everyone",
+      "id": 1557545995271807016,
+      "color": "#000000",
+      "hoist": false,
+      "position": 0,
+      "managed": false
+    }
+  ],
+  "structure": [
+    {
+      "name": "(No Category)",
+      "channels": [
+        {
+          "name": "logs-protector",
+          "type": "text",
+          "id": 1557546293063327858
+        },
+        {
+          "name": "verification",
+          "type": "text",
+          "id": 1557546295504273458
+        }
+      ]
+    },
+    {
+      "name": "Text Channels",
+      "id": 1557545999012986932,
+      "channels": [
+        {
+          "name": "general",
+          "type": "text",
+          "id": 1557545999012986934
+        }
+      ]
+    },
+    {
+      "name": "Voice Channels",
+      "id": 1557545999012986933,
+      "channels": [
+        {
+          "name": "General",
+          "type": "voice",
+          "id": 1557545999012986935
+        }
+      ]
+    }
+  ]
+}

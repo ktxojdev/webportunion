@@ -1,0 +1,426 @@
+{
+  "roles": [
+    {
+      "name": "👑 Owner",
+      "color": "#e74c3c",
+      "hoist": true,
+      "admin": true,
+      "mentionable": false
+    },
+    {
+      "name": "⚡ Co-Owner",
+      "color": "#e67e22",
+      "hoist": true,
+      "admin": true,
+      "mentionable": false
+    },
+    {
+      "name": "Administrator",
+      "color": "#9b59b6",
+      "hoist": true,
+      "admin": true,
+      "mentionable": false
+    },
+    {
+      "name": "⚔️ Moderator",
+      "color": "#3498db",
+      "hoist": true,
+      "moderator": true,
+      "mentionable": true
+    },
+    {
+      "name": "🤝 Partner",
+      "color": "#1abc9c",
+      "hoist": true,
+      "mentionable": false
+    },
+    {
+      "name": "⭐ VIP",
+      "color": "#f1c40f",
+      "hoist": true,
+      "mentionable": false
+    },
+    {
+      "name": "🤖 Bots",
+      "color": "#7289da",
+      "hoist": true,
+      "mentionable": false
+    },
+    {
+      "name": "✅ Verified",
+      "color": "#2ecc71",
+      "hoist": false,
+      "mentionable": false
+    },
+    {
+      "name": "Member",
+      "color": "#3498db",
+      "hoist": true,
+      "mentionable": false
+    }
+  ],
+  "categories": [
+    {
+      "name": "📌・START HERE",
+      "overwrites": [
+        {
+          "role": "@everyone",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": false,
+            "add_reactions": true,
+            "read_message_history": true
+          }
+        }
+      ],
+      "channels": [
+        {
+          "name": "👋・welcome",
+          "type": "text",
+          "topic": "Welcome to The Webport Union! Check out our links and rules."
+        },
+        {
+          "name": "📜・rules",
+          "type": "text",
+          "topic": "Official server rules and safety guidelines."
+        },
+        {
+          "name": "📢・announcements",
+          "type": "announcement",
+          "topic": "Major updates, proxy drops, and network news."
+        },
+        {
+          "name": "✅・verification",
+          "type": "text",
+          "topic": "Verify here to gain access to the server.",
+          "overwrites": [
+            {
+              "role": "@everyone",
+              "permissions": {
+                "view_channel": true,
+                "send_messages": true,
+                "read_message_history": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "🌐・OFFICIAL LINKS",
+      "overwrites": [
+        {
+          "role": "@everyone",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": false,
+            "read_message_history": true
+          }
+        }
+      ],
+      "channels": [
+        {
+          "name": "🔗・official-links",
+          "type": "text",
+          "topic": "Working unblocked web ports, proxy mirrors, and direct links."
+        },
+        {
+          "name": "💻・byod-make-links",
+          "type": "text",
+          "topic": "Instructions for Build Your Own Domain / deploying your own mirrors."
+        },
+        {
+          "name": "ℹ️・status",
+          "type": "text",
+          "topic": "Domain status, uptime checks, and filter evasion status."
+        },
+        {
+          "name": "👀・sneak-peeks",
+          "type": "text",
+          "topic": "Previews of upcoming games and proxy versions."
+        },
+        {
+          "name": "🤝・partners",
+          "type": "text",
+          "topic": "Partner unblocked sites and partner advertisements."
+        }
+      ]
+    },
+    {
+      "name": "💬・COMMUNITY",
+      "overwrites": [
+        {
+          "role": "@everyone",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": true,
+            "attach_files": true,
+            "embed_links": true
+          }
+        }
+      ],
+      "channels": [
+        {
+          "name": "💬・general",
+          "type": "text",
+          "topic": "Main chat for the community."
+        },
+        {
+          "name": "📸・media",
+          "type": "text",
+          "topic": "Share memes, images, and gameplay clips."
+        },
+        {
+          "name": "💡・suggestions",
+          "type": "text",
+          "topic": "Suggest new games, ports, or proxy features."
+        },
+        {
+          "name": "🐛・bug-reports",
+          "type": "text",
+          "topic": "Report broken links or game bugs here."
+        },
+        {
+          "name": "📊・polls",
+          "type": "text",
+          "topic": "Community votes and question of the day."
+        },
+        {
+          "name": "🤖・bot-commands",
+          "type": "text",
+          "topic": "Use bot commands here to keep general chat clean."
+        }
+      ]
+    },
+    {
+      "name": "🕹️・THE WEBPORT UNION",
+      "overwrites": [
+        {
+          "role": "@everyone",
+          "permissions": {
+            "view_channel": false
+          }
+        },
+        {
+          "role": "Member",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": true
+          }
+        }
+      ],
+      "channels": [
+        {
+          "name": "💡・port-requests",
+          "type": "text",
+          "topic": "Request new WebAssembly decompilations and web ports."
+        },
+        {
+          "name": "🛠️・porting-help",
+          "type": "text",
+          "topic": "Assistance with Emscripten, WASM building, and COOP/COEP Cross-Origin Isolation."
+        },
+        {
+          "name": "🚀・your-ports",
+          "type": "text",
+          "topic": "Showcase your own webports and community creations."
+        },
+        {
+          "name": "🔄・github-commits",
+          "type": "text",
+          "topic": "Live commit and release notifications for The Webport Union.",
+          "overwrites": [
+            {
+              "role": "Member",
+              "permissions": {
+                "view_channel": true,
+                "send_messages": false,
+                "read_message_history": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "🌐・live-deployments",
+          "type": "text",
+          "topic": "Official live Vercel links and permanent jsDelivr endpoints.",
+          "overwrites": [
+            {
+              "role": "Member",
+              "permissions": {
+                "view_channel": true,
+                "send_messages": false,
+                "read_message_history": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "🎫・SUPPORT",
+      "overwrites": [
+        {
+          "role": "@everyone",
+          "permissions": {
+            "view_channel": false
+          }
+        },
+        {
+          "role": "Member",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": true
+          }
+        }
+      ],
+      "channels": [
+        {
+          "name": "📩・open-a-ticket",
+          "type": "text",
+          "topic": "Open a ticket for unblock requests, link help, or reports."
+        },
+        {
+          "name": "❓・faq",
+          "type": "text",
+          "topic": "Frequently asked questions and bypassing tips."
+        }
+      ]
+    },
+    {
+      "name": "🔊・VOICE CHANNELS",
+      "overwrites": [
+        {
+          "role": "@everyone",
+          "permissions": {
+            "view_channel": true,
+            "connect": true,
+            "speak": true
+          }
+        }
+      ],
+      "channels": [
+        {
+          "name": "🔊・General VC",
+          "type": "voice"
+        },
+        {
+          "name": "🎮・Gaming 1",
+          "type": "voice"
+        },
+        {
+          "name": "🎮・Gaming 2",
+          "type": "voice"
+        },
+        {
+          "name": "🎧・Chill & Listen",
+          "type": "voice"
+        }
+      ]
+    },
+    {
+      "name": "🔒・STAFF ONLY",
+      "overwrites": [
+        {
+          "role": "@everyone",
+          "permissions": {
+            "view_channel": false
+          }
+        },
+        {
+          "role": "👑 Owner",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": true
+          }
+        },
+        {
+          "role": "⚡ Co-Owner",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": true
+          }
+        },
+        {
+          "role": "Administrator",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": true
+          }
+        },
+        {
+          "role": "⚔️ Moderator",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": true
+          }
+        }
+      ],
+      "channels": [
+        {
+          "name": "💬・staff-chat",
+          "type": "text",
+          "topic": "Private discussions for mods and admins."
+        },
+        {
+          "name": "🤖・bot-testing",
+          "type": "text",
+          "topic": "Private bot configuration and command testing."
+        },
+        {
+          "name": "📋・mod-logs",
+          "type": "text",
+          "topic": "Moderation action records."
+        }
+      ]
+    },
+    {
+      "name": "🛡️・SECURITY & LOGS",
+      "overwrites": [
+        {
+          "role": "@everyone",
+          "permissions": {
+            "view_channel": false
+          }
+        },
+        {
+          "role": "👑 Owner",
+          "permissions": {
+            "view_channel": true
+          }
+        },
+        {
+          "role": "⚡ Co-Owner",
+          "permissions": {
+            "view_channel": true
+          }
+        },
+        {
+          "role": "Administrator",
+          "permissions": {
+            "view_channel": true
+          }
+        },
+        {
+          "role": "Protector",
+          "permissions": {
+            "view_channel": true,
+            "send_messages": true
+          }
+        }
+      ],
+      "channels": [
+        {
+          "name": "logs-protector",
+          "type": "text",
+          "topic": "Official log output for Protector bot."
+        },
+        {
+          "name": "🔒・security-logs",
+          "type": "text",
+          "topic": "Audit logs and raid protection alerts."
+        }
+      ]
+    }
+  ]
+}
