@@ -37,7 +37,7 @@ The Webport Union is a high-precision WebAssembly decompilation, retro emulation
 
 Brand & Aesthetic Guidelines:
 - Identity: Minimalist shadcn/ui zinc theme (#09090b background, clean, technical, helpful).
-- Tone: Extremely sharp, fast, accurate, hacker/developer friendly, and respectful.
+- Tone: Extremely sharp, fast, accurate, developer/hacker friendly, and respectful.
 - Owner: ktxojdev
 - Administrator: q8j
 - Moderator: turg
@@ -53,7 +53,7 @@ Core Knowledge:
 - Support & Tickets: Members can open a ticket in #open-a-ticket or use /ticket. Staff closes it with /close.
 - Forum: #your-ports is a post-based discussion forum where members share their custom WASM ports.
 
-When asked about games, mirrors, porting, code, or general questions, respond concisely with precise markdown links and instructions.
+When asked about mirrors, web tech, byod, code, or general questions, respond concisely with precise markdown links and instructions.
 """
 
 def get_gemini_client():
@@ -73,7 +73,6 @@ async def query_ai(prompt: str) -> str:
     # 1. Try Google Gemini if key configured
     if client:
         try:
-            # Run in thread pool to prevent blocking Discord async loop
             loop = asyncio.get_running_loop()
             
             def _call():
@@ -90,7 +89,7 @@ async def query_ai(prompt: str) -> str:
                         )
                         if resp and resp.text:
                             return resp.text.strip()
-                    except Exception as e:
+                    except Exception:
                         continue
                 return None
 
@@ -131,19 +130,6 @@ async def query_ai(prompt: str) -> str:
             "The BYOD router lets you point any custom domain or sub-domain to The Webport Union to create personal unblocked school mirrors.\n"
             "• Visit: `https://webportunion.games/byod`\n"
             "• Check `#byod-make-links` in Discord for step-by-step walkthroughs."
-        )
-
-    if any(w in p_lower for w in ["game", "play", "clustertruck", "cuphead", "batim", "miside", "cs"]):
-        return (
-            "🕹️ **Popular Game Ports Available**:\n\n"
-            "• **ClusterTruck**: `https://webportunion.games/files/ClusterTruck/clustertruck.html`\n"
-            "• **Cuphead**: `https://webportunion.games/files/cuphead/index.html`\n"
-            "• **Bendy (BATIM)**: `https://webportunion.games/files/BATIM/index.html`\n"
-            "• **MiSide**: `https://webportunion.games/files/miside/miside.html`\n"
-            "• **Global Strike (CS 1.6)**: `https://webportunion.games/files/gstrike/index.html`\n"
-            "• **Fez**: `https://webportunion.games/files/FEZ/fez.html`\n"
-            "• **Dr. Langeskov**: `https://cdn.jsdelivr.net/gh/ktxojdev/dr-langeskov-webport@main/index.html`\n\n"
-            "View all ports in <#1557554341991419944> (`#official-links`) or run `/portal`!"
         )
 
     if any(w in p_lower for w in ["owner", "admin", "mod", "staff"]):

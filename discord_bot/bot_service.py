@@ -267,27 +267,11 @@ async def slash_portal(interaction: discord.Interaction):
         inline=False
     )
     embed.add_field(
-        name="🕹️ Direct Game Links (Featured)",
+        name="🎮 Webport Union Platform",
         value=(
-            "• **ClusterTruck**: `https://webportunion.games/files/ClusterTruck/clustertruck.html`\n"
-            "• **Cuphead**: `https://webportunion.games/files/cuphead/index.html`\n"
-            "• **Bendy (BATIM)**: `https://webportunion.games/files/BATIM/index.html`\n"
-            "• **MiSide**: `https://webportunion.games/files/miside/miside.html`\n"
-            "• **OneShot (WME)**: `https://webportunion.games/files/oneshot-wme/index.html`\n"
-            "• **Dr. Langeskov**: `https://cdn.jsdelivr.net/gh/ktxojdev/dr-langeskov-webport@main/index.html`"
-        ),
-        inline=False
-    )
-    embed.add_field(
-        name="🕹️ Direct Game Links (Arcade & Action)",
-        value=(
-            "• **Global Strike (CS 1.6)**: `https://webportunion.games/files/gstrike/index.html`\n"
-            "• **Fez**: `https://webportunion.games/files/FEZ/fez.html`\n"
-            "• **Hill Climb Racing**: `https://webportunion.games/files/hcr/index.html`\n"
-            "• **Dice A Million**: `https://webportunion.games/files/diceAmillion/diceamillion.html`\n"
-            "• **Toasterball**: `https://webportunion.games/files/toasterball/index.html`\n"
-            "• **Brotato**: `https://webportunion.games/files/bpac/index.html`\n"
-            "• **Baldi's Basics**: `https://webportunion.games/files/birthdaybash/index.html`"
+            "• **Clean Minimalist Portal**: `https://webportunion.games`\n"
+            "• **Stealth SVG Launcher**: `https://cdn.jsdelivr.net/gh/ktxojdev/webportunion@main/launcher.svg`\n"
+            "• **Vercel Edge Mirror**: `https://webport-union.vercel.app`"
         ),
         inline=False
     )

@@ -26,7 +26,7 @@ async def on_ready():
                 "and hosting authentic WebAssembly decompilations, retro emulation cores, and resilient web proxies.\n\n"
                 "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
                 "### ⚡ What We Offer\n"
-                "• 🎮 **Genuine Web Ports**: High-performance browser decompilations (GTA III Web, Nintendo Web Emu, Haven OS, Amethyst).\n"
+                "• 🎮 **Genuine Web Ports**: High-performance browser WebAssembly architecture and retro emulation.\n"
                 "• 🔗 **Unblockable Architecture**: BYOD (Build Your Own Domain) tools and permanent CDN endpoints via jsDelivr.\n"
                 "• 🚀 **High Speed**: Zero bloat, hosted on Vercel Edge networks.\n"
                 "• 🛡️ **Community Driven**: Request new ports, share your own, and get active help from developers.\n\n"
