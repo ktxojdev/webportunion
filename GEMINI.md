@@ -14,7 +14,10 @@
 - Localhost development runs on port 3000.
 - Cross-Origin Isolation (`Cross-Origin-Opener-Policy: same-origin`, `Cross-Origin-Embedder-Policy: require-corp`) is mandatory for WebAssembly shared memory.
 
-## Staging, Sneak Peeks & Deployment Protocol
-- Test all UI upgrades and new ports locally on localhost (port 3000).
-- Prior to asking for production deployment, capture screenshots/previews from the localhost version and post them directly to `#sneak-peeks` in Discord.
+## Discord & Posting Policy (CRITICAL & STRICT)
+- **DO NOT POST ANYTHING OR MESSAGE ANYTHING IN ANY DISCORD CHANNEL** unless the user explicitly instructs you to do so.
+- Do NOT post sneak peeks.
+- Do NOT post announcements.
+- Do NOT dispatch automatic webhook messages to Discord.
+- Stay completely silent in all Discord channels unless specifically commanded by the user.
 - Always ask for explicit user confirmation before deploying changes to live production.
