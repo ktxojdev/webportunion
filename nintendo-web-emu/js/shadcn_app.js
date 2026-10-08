@@ -27,18 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         const resp = await fetch("/games.json");
         const jsonGames = await resp.json();
-        allGames = jsonGames;
-
-        // Add Retro Core
-        allGames.unshift({
-            id: "retro-nintendo",
-            name: "Nintendo 64 / GBA / SNES Core",
-            gameUrl: "player.html?type=custom",
-            imageUrl: "img/screenshot.png",
-            porter: "EmulatorJS",
-            featured: true,
-            isEmulator: true
-        });
+        allGames = jsonGames || [];
     } catch (err) {
         console.error("Failed to load games.json", err);
     }
@@ -53,10 +42,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                    (game.porter && game.porter.toLowerCase().includes(searchQuery.toLowerCase()));
         });
 
-        countDisplay.textContent = `${filtered.length} games available`;
+        countDisplay.textContent = `${filtered.length} ports available`;
 
         if (filtered.length === 0) {
-            grid.innerHTML = `<div class="empty-state">No games found matching "${searchQuery}"</div>`;
+            grid.innerHTML = searchQuery 
+                ? `<div class="empty-state">No ports found matching "${searchQuery}"</div>`
+                : `<div class="empty-state">No ports currently active.</div>`;
             return;
         }
 
