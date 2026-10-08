@@ -53,7 +53,9 @@ async def on_ready():
             description=(
                 "Official permanent CDN mirrors and deployment hubs for The Webport Union.\n\n"
                 "🌐 **Primary Domain**: `https://webportunion.games`\n"
+                "📦 **Permanent jsDelivr CDN**: `https://cdn.jsdelivr.net/gh/ktxojdev/webportunion@main/launcher.svg`\n"
                 "🔗 **Vercel Mirror**: `https://webport-union.vercel.app`\n"
+                "🐙 **GitHub Source**: `https://github.com/ktxojdev/webportunion`\n"
                 "🎮 **GTA III Web**: Native WebAssembly re3 port with full audio & graphics.\n"
                 "🕹️ **Nintendo Web Emu**: High-precision WebAssembly retro emulation core.\n"
                 "💻 **BYOD Tool**: Build Your Own Domain router to generate unblockable school mirrors."

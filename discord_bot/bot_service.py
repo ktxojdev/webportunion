@@ -244,9 +244,10 @@ async def slash_portal(interaction: discord.Interaction):
         title="🌐 The Webport Union — Production Portals",
         description=(
             "• **Official Domain**: [webportunion.games](https://webportunion.games)\n"
-            "• **Vercel Mirror**: [webport-union.vercel.app](https://webport-union.vercel.app)\n"
+            "• **Permanent jsDelivr CDN**: `https://cdn.jsdelivr.net/gh/ktxojdev/webportunion@main/launcher.svg`\n"
+            "• **GitHub Repository**: [github.com/ktxojdev/webportunion](https://github.com/ktxojdev/webportunion)\n"
             "• **Permanent Discord**: [discord.gg/4e9ckAw8Fv](https://discord.gg/4e9ckAw8Fv)\n"
-            "• **Stealth SVG Launcher**: `https://webportunion.games/launcher.svg`"
+            "• **Vercel Mirror**: [webport-union.vercel.app](https://webport-union.vercel.app)"
         ),
         color=0x5865F2
     )
