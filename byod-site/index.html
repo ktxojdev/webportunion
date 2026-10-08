@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bring Your OWN Domain!</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: rgba(22, 27, 34, 0.85);
+      --border: rgba(240, 246, 252, 0.1);
+      --primary: #58a6ff;
+      --accent: #238636;
+      --accent-hover: #2ea043;
+      --text: #f0f6fc;
+      --text-muted: #8b949e;
+      --code-bg: #161b22;
+      --highlight: #f778ba;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at 50% 10%, #1a2234 0%, var(--bg) 70%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #58a6ff, #a371f7, #f778ba);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .step-list {
+      list-style: none;
+      counter-reset: step-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .step-list li {
+      counter-increment: step-counter;
+      position: relative;
+      padding-left: 48px;
+      line-height: 1.6;
+    }
+    .step-list li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: #000;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+    .code-badge {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      color: #79c0ff;
+      font-size: 0.95em;
+    }
+    .ip-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: all;
+      font-family: monospace;
+      color: #58a6ff;
+      font-size: 1.05rem;
+      transition: border-color 0.2s;
+    }
+    .ip-box:hover {
+      border-color: var(--primary);
+    }
+    .copy-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .copy-btn:hover {
+      color: var(--text);
+    }
+    /* Checker tool */
+    .checker-form {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .checker-form input {
+      flex: 1;
+      min-width: 240px;
+      padding: 12px 16px;
+      background: var(--code-bg);
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+    }
+    .checker-form input:focus {
+      border-color: var(--primary);
+    }
+    .checker-form button {
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .checker-form button:hover {
+      background: var(--accent-hover);
+    }
+    #checkResult {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 8px;
+      display: none;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .result-success {
+      background: rgba(35, 134, 54, 0.15);
+      border: 1px solid rgba(35, 134, 54, 0.4);
+      color: #7ee787;
+    }
+    .result-pending {
+      background: rgba(210, 153, 34, 0.15);
+      border: 1px solid rgba(210, 153, 34, 0.4);
+      color: #e3b341;
+    }
+    .result-error {
+      background: rgba(248, 81, 73, 0.15);
+      border: 1px solid rgba(248, 81, 73, 0.4);
+      color: #f85149;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Bring Your OWN Domain!</h1>
+      <p class="subtitle">Quick setup guide to map your personal custom domain to the server.</p>
+    </header>
+
+    <div class="card">
+      <h2>🚀 Setup Instructions</h2>
+      <ol class="step-list">
+        <li>
+          Log in to your domain registrar (Cloudflare, Namecheap, GoDaddy, Google/Squarespace, etc.) and open your <strong>DNS Management</strong> page.
+        </li>
+        <li>
+          Create a new <span class="code-badge">A</span> record:
+          <div style="margin-top: 10px;">
+            <strong>Type:</strong> <span class="code-badge">A</span><br>
+            <strong>Host / Name:</strong> <span class="code-badge">@</span> (or your desired subdomain like <span class="code-badge">proxy</span>)<br>
+            <strong>Points to (Value):</strong>
+            <span class="ip-box" id="ipBox" onclick="copyIp()">
+              <span id="ipVal">159.195.17.92</span>
+              <button class="copy-btn" title="Click to copy">📋 Copy</button>
+            </span>
+          </div>
+        </li>
+        <li>
+          Save the record and wait approximately <strong>10 to 15 minutes</strong> for DNS propagation across global resolvers.
+        </li>
+        <li>
+          Visit your domain in any browser over <span class="code-badge">http://</span> or <span class="code-badge">https://</span>!
+        </li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>🔍 Live DNS Propagation Checker</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        Enter your domain name below to query public DNS (Cloudflare DNS-over-HTTPS) and verify if your <span class="code-badge">A</span> record is actively pointing to <span class="code-badge">159.195.17.92</span>.
+      </p>
+      <form class="checker-form" id="checkerForm">
+        <input type="text" id="domainInput" placeholder="example.com" required autocomplete="off" />
+        <button type="submit" id="checkBtn">Check DNS Status</button>
+      </form>
+      <div id="checkResult"></div>
+    </div>
+
+    <footer>
+      <p>Powered by TypeScript &bull; Ready for Vercel, Google Cloud Storage & jsDelivr</p>
+    </footer>
+  </div>
+
+  <script src="dist/main.js"></script>
+</body>
+</html>

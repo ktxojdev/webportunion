@@ -1,0 +1,25 @@
+{
+  "name": "byod-domain-router",
+  "version": "1.0.0",
+  "description": "Custom domain router and DNS verification tool",
+  "main": "dist/main.js",
+  "types": "src/main.ts",
+  "files": [
+    "index.html",
+    "dist/main.js",
+    "src/main.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "byod",
+    "custom-domain",
+    "dns-checker",
+    "jsdelivr"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byod-domain-router/byod.git"
+  }
+}

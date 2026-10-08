@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <!-- Dark Zinc Background Card -->
+  <rect width="512" height="512" rx="128" fill="#09090b"/>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="#18181b" stroke="#27272a" stroke-width="12"/>
+  
+  <!-- Outer Hexagonal Port Geometry -->
+  <path d="M400 320V192a32 32 0 0 0-16-27.71l-112-64.66a32 32 0 0 0-32 0l-112 64.66A32 32 0 0 0 112 192v128a32 32 0 0 0 16 27.71l112 64.66a32 32 0 0 0 32 0l112-64.66A32 32 0 0 0 400 320z" 
+        stroke="#fafafa" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Central Union Node -->
+  <circle cx="256" cy="256" r="48" fill="#fafafa"/>
+  
+  <!-- Interconnected Data Lines -->
+  <line x1="256" y1="208" x2="256" y2="108" stroke="#fafafa" stroke-width="24" stroke-linecap="round"/>
+  <line x1="214.4" y1="280" x2="128" y2="330" stroke="#fafafa" stroke-width="24" stroke-linecap="round"/>
+  <line x1="297.6" y1="280" x2="384" y2="330" stroke="#fafafa" stroke-width="24" stroke-linecap="round"/>
+</svg>

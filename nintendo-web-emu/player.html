@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Nintendo Web Player</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html { width: 100%; height: 100%; overflow: hidden; background: #000; font-family: -apple-system, sans-serif; color: #fff; }
+        #game-frame { width: 100%; height: 100%; border: none; display: none; }
+        #game-container { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+        #custom-prompt {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #1a1e24 0%, #0b0c0e 100%);
+            gap: 16px;
+            cursor: pointer;
+        }
+        .upload-icon { font-size: 50px; }
+        .upload-btn {
+            background: linear-gradient(135deg, #0ab9e6, #0087b3);
+            border: none;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(10, 185, 230, 0.4);
+            transition: transform 0.15s ease;
+        }
+        .upload-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div id="game-container"></div>
+    <iframe id="game-frame" allow="autoplay; gamepad; fullscreen; cross-origin-isolated"></iframe>
+
+    <div id="custom-prompt">
+        <div class="upload-icon">🎮</div>
+        <h2 style="font-size: 22px; font-weight: 700;">Select or Drop Any Nintendo Game ROM</h2>
+        <p style="color: #94a3b8; font-size: 14px;">Supports .z64, .n64, .gba, .snes, .smc, .nds, .nes, .zip</p>
+        <button class="upload-btn" id="btn-pick-rom">Choose ROM File</button>
+        <input type="file" id="rom-input" style="display: none;" accept=".z64,.n64,.v64,.gba,.snes,.smc,.nds,.nes,.zip">
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get("type");
+        const core = params.get("core") || "n64";
+        const romUrl = params.get("rom");
+        const directUrl = params.get("url");
+
+        const gameContainer = document.getElementById("game-container");
+        const gameFrame = document.getElementById("game-frame");
+        const customPrompt = document.getElementById("custom-prompt");
+        const romInput = document.getElementById("rom-input");
+        const btnPickRom = document.getElementById("btn-pick-rom");
+
+        function launchEmulator(gameCore, gamePath) {
+            gameContainer.style.display = "block";
+            customPrompt.style.display = "none";
+            gameFrame.style.display = "none";
+
+            window.EJS_player = '#game-container';
+            window.EJS_core = gameCore;
+            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+            if (gamePath) {
+                window.EJS_gameUrl = gamePath;
+            }
+            window.EJS_color = '#0ab9e6';
+            window.EJS_startOnLoaded = true;
+            window.EJS_fullscreenOnLoad = false;
+            window.EJS_disableMenu = false;
+
+            const script = document.createElement("script");
+            script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+            document.body.appendChild(script);
+        }
+
+        if (type === "workspace" && directUrl) {
+            gameContainer.style.display = "none";
+            gameFrame.style.display = "block";
+            gameFrame.src = directUrl;
+        } else if (type === "custom" || (!romUrl && !directUrl)) {
+            customPrompt.style.display = "flex";
+            btnPickRom.addEventListener("click", () => romInput.click());
+            customPrompt.addEventListener("dragover", (e) => e.preventDefault());
+            customPrompt.addEventListener("drop", (e) => {
+                e.preventDefault();
+                if (e.dataTransfer.files.length > 0) {
+                    handleRomFile(e.dataTransfer.files[0]);
+                }
+            });
+            romInput.addEventListener("change", (e) => {
+                if (e.target.files.length > 0) {
+                    handleRomFile(e.target.files[0]);
+                }
+            });
+        } else {
+            launchEmulator(core, romUrl);
+        }
+
+        function handleRomFile(file) {
+            const ext = file.name.split('.').pop().toLowerCase();
+            let autoCore = "n64";
+            if (ext === "gba") autoCore = "gba";
+            else if (ext === "snes" || ext === "smc") autoCore = "snes";
+            else if (ext === "nds") autoCore = "nds";
+            else if (ext === "nes") autoCore = "nes";
+            else if (ext === "z64" || ext === "n64" || ext === "v64") autoCore = "n64";
+
+            const fileUrl = URL.createObjectURL(file);
+            launchEmulator(autoCore, fileUrl);
+        }
+    </script>
+</body>
+</html>
