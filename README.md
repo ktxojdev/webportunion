@@ -6,8 +6,9 @@
 
 ## 🌐 Ecosystem & Live Deployments
 
-- **Production Portal**: [webport-union.vercel.app](https://webport-union.vercel.app)
-- **Permanent CDN Mirror**: `https://cdn.jsdelivr.net/gh/wasmdotrip/wasm.rip@main/`
+- **Official Domain**: [webportunion.games](https://webportunion.games)
+- **Vercel Mirror**: [webport-union.vercel.app](https://webport-union.vercel.app)
+- **Permanent CDN Mirror**: Official jsDelivr & Cloudflare edge endpoints
 - **Discord Community**: The Webport Union (`1557545995271807016`)
 
 ---

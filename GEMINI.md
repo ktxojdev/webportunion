@@ -7,9 +7,14 @@
 
 ## Port Quality & CDN Standards
 - Only genuine WebAssembly decompilations, ports, and retro emulation cores. Zero AI mocks.
-- Prohibit `raw.githack.com`. Use local assets or live jsDelivr CDN endpoints (`https://cdn.jsdelivr.net/gh/wasmdotrip/wasm.rip@main/files/...`).
+- Prohibit `raw.githack.com`. Use local assets or official jsDelivr CDN endpoints.
 - Ensure every port supports 1-click jsDelivr link extraction.
 
 ## Hosting & Headers
 - Localhost development runs on port 3000.
 - Cross-Origin Isolation (`Cross-Origin-Opener-Policy: same-origin`, `Cross-Origin-Embedder-Policy: require-corp`) is mandatory for WebAssembly shared memory.
+
+## Staging, Sneak Peeks & Deployment Protocol
+- Test all UI upgrades and new ports locally on localhost (port 3000).
+- Prior to asking for production deployment, capture screenshots/previews from the localhost version and post them directly to `#sneak-peeks` in Discord.
+- Always ask for explicit user confirmation before deploying changes to live production.
