@@ -1,15 +1,12 @@
 # The Webport Union
 
-> High-precision WebAssembly decompilations, retro emulation cores, and unblockable web infrastructure.
-
 ---
 
 ## 🌐 Ecosystem & Live Deployments
 
 - **Official Domain**: [webportunion.games](https://webportunion.games)
 - **Vercel Mirror**: [webport-union.vercel.app](https://webport-union.vercel.app)
-- **Permanent CDN Mirror**: Official jsDelivr & Cloudflare edge endpoints
-- **Discord Community**: The Webport Union (`1557545995271807016`)
+- **Discord Community**: The Webport Union (`1557545995271807016`) https://discord.gg/fJ4cjKVhg5
 
 ---
 
