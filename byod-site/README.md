@@ -1,5 +1,7 @@
 # Bring Your OWN Domain! - TypeScript Site & Deployment Suite
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This directory contains the complete source code, TypeScript configuration, and automated deployment scripts to host your site across **Vercel**, **Google Cloud Storage (GCS)**, and **jsDelivr**.
 
 ---
@@ -20,7 +22,7 @@ This directory contains the complete source code, TypeScript configuration, and 
 ## 🚀 How to Run & Deploy
 
 ### 1. Test Locally
-Double-click [run_local.bat](file:///C:/Users/ktxoj1/Desktop/precision-static/byod-site/run_local.bat) or run in terminal:
+Run in terminal:
 ```bash
 python -m http.server 8080
 ```
@@ -39,7 +41,7 @@ Paste your Vercel Token (from [vercel.com/account/tokens](https://vercel.com/acc
 
 ### 3. Serve via jsDelivr CDN
 jsDelivr mirrors files directly from public GitHub repositories:
-1. Double-click [push_to_github_for_jsdelivr.bat](file:///C:/Users/ktxoj1/Desktop/precision-static/byod-site/push_to_github_for_jsdelivr.bat).
+1. Run deployment helper or push directly via git.
 2. Enter your GitHub repo URL.
 3. Access your files instantly through:
    ```text
@@ -64,3 +66,9 @@ In your domain registrar's DNS panel:
 - **Name**: `@` (or subdomain)
 - **Target / Value**: `159.195.17.92`
 - Wait ~15 minutes for global DNS propagation, then test using the built-in DNS checker tool on the page!
+
+---
+
+## 📄 License
+
+This project is open-source under the [MIT License](../LICENSE).

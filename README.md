@@ -1,5 +1,7 @@
 # The Webport Union
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ---
 
 ## 🌐 Ecosystem & Live Deployments
@@ -43,9 +45,19 @@ All multithreaded WebAssembly cores and SharedArrayBuffer modules require strict
 
 ---
 
+## 🤝 Contributing & Security
+
+We welcome contributions from developers! Please review our [Contributing Guidelines](CONTRIBUTING.md) and [Security Policy](SECURITY.md) before submitting pull requests.
+
 ## 🤖 Discord Integration & Sync
 
 The Discord server is automated via `discord_bot/controller.py`:
 - **Verification Gates**: Automatically locks community & proxy links behind the `@Member` role.
 - **Port Requests & Help**: Dedicated channels (`#port-requests`, `#porting-help`, `#your-ports`) for collaborative WebAssembly port development.
 - **Commit Notifications**: Direct synchronization channel (`#github-commits`) for repository updates.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
