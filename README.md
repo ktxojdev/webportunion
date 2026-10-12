@@ -1,12 +1,12 @@
-# The Webport Union
+# port.xyz
 
 ---
 
-## 🌐 Ecosystem & Live Deployments
+## 🌐 Project Identity & Live Presence
 
-- **Official Domain**: [webportunion.games](https://webportunion.games)
-- **Vercel Mirror**: [webport-union.vercel.app](https://webport-union.vercel.app)
-- **Discord Community**: The Webport Union (`1557545995271807016`) https://discord.gg/fJ4cjKVhg5
+- **Official Domain**: [portxyz.tech](https://portxyz.tech)
+- **Project Name**: port.xyz
+- **Focus**: Minimal web presence, clean domain routing, and polished digital infrastructure.
 
 ---
 
@@ -16,7 +16,7 @@
 | :--- | :--- | :--- |
 | **`nintendo-web-emu`** | Retro Emulation | N64 & Nintendo WebAssembly emulation core with shadcn/ui dark tokens. |
 | **`GTA3Web` / `GTA3Web-Vercel`** | WASM Decompilation | Native Grand Theft Auto III re3 WebAssembly browser port with audio/WebGL. |
-| **`byod-site`** | Domain Router | Build Your Own Domain generator for client-side DNS routing and mirror creation. |
+| **`byod-site`** | Domain Router | Minimal custom-domain generator for client-side DNS routing and mirror creation. |
 | **`haven-os`** | Web OS | Unblocked browser desktop environment. |
 | **`Blobwifi`** | Proxy / Tunnel | Lightweight web proxy tunnel interface. |
 | **`amethyst-mirror`** | Web Mirror | Mirror and game asset CDN proxy. |
